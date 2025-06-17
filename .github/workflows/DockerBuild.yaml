@@ -1,0 +1,26 @@
+name: dockerloginDEVQA
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+
+jobs:
+  LogintodockerhubDEV:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      uses: docker/login-action@v2.1.0
+      with:
+        username: ${{secrets.DOCKERHUBUSERNAME}}
+        password: ${{secrets.DOCKERHUBPASSWORD}}
+    - name: Docker Build
+      run: docker build -t github-actions-demo .
+    - name: Docker Tag
+      run: docker tag github-action-demo Nibedita84/Github-action-demo
+    - name: Docker Push
+      run: docker push "image"

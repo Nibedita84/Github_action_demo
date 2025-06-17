@@ -8,7 +8,7 @@ on:
 jobs:
   LogintodockerhubDEV:
     runs-on: ubuntu-latest
-    environment: Dev
+    environment: dev_nd
     steps:
     - uses: actions/checkout@v3
     - name: docker/login
@@ -24,7 +24,7 @@ jobs:
       run: docker push Nibedita84/Hello_world
   LogintodockerhubQA:
     runs-on: ubuntu-latest
-    environment: QA
+    environment: qa_nd
     steps:
     - uses: actions/checkout@v3
     - name: docker/login

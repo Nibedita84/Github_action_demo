@@ -9,7 +9,7 @@ name : dockerloginDEVQA
   jobs:
     LogintodockerhubDEV:
       runs-on: ubuntu-latest
-      environment: Dev
+      environment: dev_nd
       steps:
       - users: actions/checkout@v3
       - name: docker login
@@ -20,7 +20,7 @@ name : dockerloginDEVQA
           password: ${{secrets.DOCKERHUBPASSWORD}}
       LogintodockerhubQA:
         runs-on: ubuntu-latest
-      environment: QA
+      environment: qa_nd
       steps:
       - users: actions/checkout@v3
       - name: docker login
